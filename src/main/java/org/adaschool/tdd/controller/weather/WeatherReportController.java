@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping( "/v1/weather" )
@@ -31,8 +32,14 @@ public class WeatherReportController
         return weatherService.report( weatherReportDto );
     }
 
+    /*@GetMapping( "/{id}" )
+    public Optional<WeatherReport> findById(@PathVariable String id )
+    {
+        return weatherService.findById( id );
+    }*/
+
     @GetMapping( "/{id}" )
-    public WeatherReport findById( @PathVariable String id )
+    public Optional<WeatherReport> findById(@PathVariable String id )
     {
         return weatherService.findById( id );
     }
